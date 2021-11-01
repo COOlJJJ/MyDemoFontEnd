@@ -9,6 +9,7 @@ import Roles from '../components/power/Roles.vue'
 import DashBoard from '../components/DashBoard/Index.vue'
 import Report from '../components/Report/Report.vue'
 import Excel from '../components/Tools/Excel.vue'
+import PersonSetting from '../components/users/PersonSetting.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -26,6 +27,7 @@ const routes = [
       { path: '/DashBoard', component: DashBoard },
       { path: '/Report', component: Report },
       { path: '/Excel', component: Excel },
+      { path: '/PersonSetting', component: PersonSetting },
     ]
   }
 ]

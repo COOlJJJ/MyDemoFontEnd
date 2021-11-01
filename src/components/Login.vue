@@ -10,7 +10,7 @@
                 alt
                 src="../assets/logo.png"
             /></span>
-            <b style="font-size: 25pt"> 访客系统</b></span
+            <b style="font-size: 25pt"> 后台系统</b></span
           >
         </el-card></el-col
       >
@@ -100,6 +100,7 @@ export default {
         const { data: res } = await this.$http.post("Login/Login", this.loginForm);
         if (res.status !== 200) return this.$message.error('登录失败');//this.$message调用挂载对象message消息弹框 后面是警告error方法 success方法是成功
         this.$message.success('登录成功');
+        //存储Token 顺便在存个Userid 方便后面获取
         window.localStorage.setItem('Token', res.response.token);//将返回的信息中的RoleId保存在session中 用于会话期间
         //this.$router编程式导航 push到对应的地址
         this.$router.push("/Home");

@@ -6,7 +6,20 @@
         <img alt src="../assets/logo.png" />
         <span>后台管理系统</span>
       </div>
-      <el-button @click="logout" type="info" round>退出登录</el-button>
+      <div>
+        <el-dropdown @command="handleCommand">
+          <!-- <el-button size="small"> -->
+          <!-- 个人 -->
+          <el-avatar icon="el-icon-user-solid"></el-avatar>
+          <i class="el-icon-arrow-down el-icon--right"></i>
+          <!-- </el-button> -->
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item command="a">个人中心</el-dropdown-item>
+            <el-dropdown-item command="b">退出登陆</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
+      </div>
+      <!-- <el-button @click="logout" type="info" round>退出登录</el-button> -->
     </el-header>
     <!-- 页面主体区域 -->
     <el-container>
@@ -75,7 +88,8 @@ export default {
         '101': 'el-icon-s-cooperation',
         '102': 'el-icon-s-goods  ',
         '103': 'el-icon-s-order',
-        '104': 'el-icon-s-data'
+        '104': 'el-icon-s-data',
+        '105': 'el-icon-s-data'
       },
       isCollapse: false,
       //被激活的链接地址
@@ -90,12 +104,25 @@ export default {
     //不为null 就跳转
     if (this.activePath !== 'null') {
       this.$router.push(this.activePath)
-    }else{
+    } else {
       this.$router.push('/Welcome')
     }
 
   },
   methods: {
+    handleCommand(command) {
+      switch (command) {
+        case 'a':
+          this.$router.push('/PersonSetting')
+          break;
+        case 'b':
+          this.logout()
+          break;
+        default:
+          break;
+      }
+    },
+
     logout() {
       //登出清空token就好了
       window.sessionStorage.setItem('activepath', null)
