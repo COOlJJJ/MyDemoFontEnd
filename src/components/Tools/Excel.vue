@@ -115,7 +115,7 @@ export default {
           message: response.msg,
           type: "success"
         });
-        this.userlist = response.response
+        this.userlist = response.response 
       } else {
         this.$message.error("Excel导入失败");
       }
