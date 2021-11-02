@@ -98,7 +98,11 @@ export default {
         if (!valid) return;
         // await简化promise对象 返回了6个axios封装好的属性 其中data属性就是我们需要的值 data:res 解构只要data值 res是重命名的变量 data是返回promise对象中的data 不是json中的data  重名为res await只能用async修饰的方法 即valid方法
         const { data: res } = await this.$http.post("Login/Login", this.loginForm);
-        if (res.status !== 200) return this.$message.error('登录失败');//this.$message调用挂载对象message消息弹框 后面是警告error方法 success方法是成功
+        if (res.status !== 200) {
+          this.$message.error('登录失败')
+          this.loginForm.password = ''
+          return
+        };//this.$message调用挂载对象message消息弹框 后面是警告error方法 success方法是成功
         this.$message.success('登录成功');
         //存储Token 
         window.localStorage.setItem('Token', res.response.token);//将返回的信息中的Tokend保存在session中 用于会话期间
