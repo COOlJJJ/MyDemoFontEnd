@@ -122,6 +122,7 @@ export default {
 }
 
 .login_box {
+  max-width: 450px;
   width: 30%;
   height: 30%;
   border-radius: 15px; //圆角边框
