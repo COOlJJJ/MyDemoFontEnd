@@ -4,7 +4,6 @@
     <el-header>
       <div>
         <img alt src="../assets/logo.png" />
-        <span>后台管理系统</span>
       </div>
       <div>
         <el-dropdown @command="handleCommand">

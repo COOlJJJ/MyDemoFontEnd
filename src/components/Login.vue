@@ -1,66 +1,67 @@
 <template>
-  <div class="login_container">
-    <el-row>
-      <el-col :span="24"
-        ><el-card>
-          <span class="head"
-            ><span
-              ><img
-                style="width: 175px; height: 35px"
-                alt
-                src="../assets/logo.png"
-            /></span>
-            <b style="font-size: 25pt"> 后台系统</b></span
-          >
-        </el-card></el-col
-      >
-    </el-row>
-    <div class="login_box">
-      <!-- 登录表单区域 添加ref引用 就可以拿到FORM对象-->
-      <el-form
-        ref="loginFormRef"
-        :model="loginForm"
-        :rules="loginFormRules"
-        class="login_form"
-        label-width="0px"
-      >
-        <h1>登陆</h1>
-        <p>用户名</p>
-        <!-- 用户名 prop绑定规则-->
-        <el-form-item prop="username">
-          <!-- 添加前置图标prefix 也有后置的 v-model数据绑定-->
-          <el-input
-            prefix-icon="el-icon-user-solid"
-            v-model="loginForm.username"
-            placeholder="用户名"
-          ></el-input>
-        </el-form-item>
-        <p>密码</p>
-        <!-- 密码 type='password'隐藏密码-->
-        <el-form-item prop="password">
-          <el-input
-            prefix-icon="el-icon-lock"
-            type="password"
-            v-model="loginForm.password"
-            placeholder="密码"
-          ></el-input>
-        </el-form-item>
-        <!-- 按钮区域 -->
-        <el-form-item class="btns">
-          <el-button type="primary" @click="login" style="width: 100%"
-            >登录</el-button
-          >
-          <!-- <el-button type="info" @click="resetLoginForm" round>重置</el-button> -->
-        </el-form-item>
-      </el-form>
-    </div>
-    <div class="pic_box">
-      <img alt src="../assets/Pic.svg" />
-    </div>
-
-    <div class="blewOne">Copyright © 2021, All Rights Reserved.</div>
-    <div class="blew">Powered By OP OE Digital</div>
-  </div>
+  <el-container class="login_container">
+    <el-header style="height: 20%; width 100%;padding:0px">
+      <el-card>
+        <span class="head"
+          ><span
+            ><img
+              style="width: 175px; height: 35px"
+              alt
+              src="../assets/logo.png"
+          /></span>
+          <b style="font-size: 25pt"> 后台系统</b></span
+        >
+      </el-card>
+    </el-header>
+    <el-main>
+      <div class="login_box">
+        <!-- 登录表单区域 添加ref引用 就可以拿到FORM对象-->
+        <el-form
+          ref="loginFormRef"
+          :model="loginForm"
+          :rules="loginFormRules"
+          class="login_form"
+          label-width="0px"
+        >
+          <h1>登录</h1>
+          <p>用户名</p>
+          <!-- 用户名 prop绑定规则-->
+          <el-form-item prop="username">
+            <!-- 添加前置图标prefix 也有后置的 v-model数据绑定-->
+            <el-input
+              prefix-icon="el-icon-user-solid"
+              v-model="loginForm.username"
+              placeholder="用户名"
+            ></el-input>
+          </el-form-item>
+          <p>密码</p>
+          <!-- 密码 type='password'隐藏密码-->
+          <el-form-item prop="password">
+            <el-input
+              prefix-icon="el-icon-lock"
+              type="password"
+              v-model="loginForm.password"
+              placeholder="密码"
+            ></el-input>
+          </el-form-item>
+          <!-- 按钮区域 -->
+          <el-form-item class="btns">
+            <el-button type="primary" @click="login" style="width: 100%"
+              >登录</el-button
+            >
+            <!-- <el-button type="info" @click="resetLoginForm" round>重置</el-button> -->
+          </el-form-item>
+        </el-form>
+      </div>
+      <div class="pic_box">
+        <img alt src="../assets/Pic.svg" />
+      </div>
+    </el-main>
+    <el-footer>
+      <div class="blewOne">Copyright © 2021, All Rights Reserved.</div>
+      <div class="blew">Powered By OP OE Digital</div>
+    </el-footer>
+  </el-container>
 </template>
 
 
@@ -117,26 +118,34 @@ export default {
 <style lang="less" scoped>
 .login_container {
   height: 100%;
+  width: 100%;
 }
 
 .login_box {
-  width: 450px;
-  height: 300px;
+  width: 30%;
+  height: 30%;
   border-radius: 15px; //圆角边框
-  position: absolute; //绝对位置
-  left: 25%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  float: left;
+  margin-left: 10%;
+  margin-top: 5%;
+  // position: absolute; //绝对位置
+  // left: 25%;
+  // top: 50%;
+  // transform: translate(-50%, -50%);
 }
 
 .pic_box {
-  width: 340px;
-  height: 250px;
+  width: 30%;
+  height: 30%;
   border-radius: 15px; //圆角边框
-  position: absolute; //绝对位置
-  right: 25%;
-  top: 40%;
-  transform: translate(-50%, -50%);
+  // position: absolute; //绝对位置
+  // right: 25%;
+  // top: 40%;
+  // transform: translate(-50%, -50%);
+  float: right;
+  margin-right: 20%;
+  margin-top: 5%;
+  margin-bottom: 10%;
 }
 
 .login_form {
